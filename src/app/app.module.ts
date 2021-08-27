@@ -7,11 +7,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HelloComponent } from './hello.component';
 import { ExampleModule } from './example/example.module';
+import { FirstComponent } from './first/first.component';
+import { ExampleArtifactComponent } from './example-artifact/example-artifact.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HelloComponent,
+    FirstComponent,
+    ExampleArtifactComponent,
   ],
   imports: [
     BrowserModule,

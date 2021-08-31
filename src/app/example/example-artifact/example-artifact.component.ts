@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'app-example-artifact',
@@ -7,9 +7,38 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ExampleArtifactComponent implements OnInit {
 
-  constructor() { }
+  title="example";
+  isValid = true;
+  directives=['ngfor', 'ngif', 'ngonchanges']
+  languages=[
+    {
+      name: 'python'
+    },
+    {
+      name: 'java'
+    },
+    {
+      name: 'PHP'
+    }
+  ]
+
+  constructor() { 
+    console.log('life cicle: 1 constructor');
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log(`life cicle: 2 ngonchange ${changes}`);
+    setTimeout(() => {
+      this.isValid= false
+    }, 5000);
+  }
 
   ngOnInit(): void {
+    console.log('life cicle: 3 ngOnInit');
+  }
+
+  ngOnDestroy(): void {
+    console.log('life cicle: 4 ngOnDestroy');
   }
 
 }
